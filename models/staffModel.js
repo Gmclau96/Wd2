@@ -21,6 +21,7 @@ class StaffDAO {
             user: "Gordon",
             passwowrd: process.env.GordonPassword
         });
+        console.log("Staff member Gordon added");
         return this;
     }
     create(username, password) {

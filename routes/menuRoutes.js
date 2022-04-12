@@ -4,7 +4,7 @@ const controller = require('../controllers/menuController.js');
 
 router.get("/", controller.landing_page);
 router.get("/login", controller.get_login)
-
+router.get("/newItem", controller.get_newItem)
 router.use(function(req, res) {
     res.status(404);
     res.type('text/plain');

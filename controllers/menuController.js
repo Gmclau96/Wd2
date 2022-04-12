@@ -12,3 +12,9 @@ exports.get_login = function (req, res) {
         title: 'Staff Login'
     })
 }
+
+exports.get_newItem = function (req, res) {
+    res.render('staff/newItem', {
+        title: 'New Item'
+    })
+}

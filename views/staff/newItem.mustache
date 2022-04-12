@@ -1,0 +1,44 @@
+<html>
+   <head>
+      {{>header}}
+   </head>
+   <body>
+      <div class="navBar">
+         <a href="/">Home</a>
+         <a href="/login">Login</a>
+         <a href="">Add User</a>
+         <a href="/newItem" class="active">Add dish</a>
+         <a href="./about.html">About Us</a>
+      </div>
+      <h1>{{title}}</h1>
+      <section>
+         <fieldset>
+            <legend>Add dish:</legend>
+            <form>
+               <label for="name">Name:</label><br>
+               <input type="text" id="name" name="name"><br><br>
+               <label for="description">Description:</label><br>
+               <input type="text" id="description" name="description"><br><br>               
+               <label for="ingredients">Ingredients:</label><br>
+               <input type="text" id="ingredients" name="ingredients"><br><br>
+               <label for="price">Price:</label><br>
+               <input type="text" id="price" name="price"><br><br>
+               <label for="itemType">Item Type:</label><br>
+               <select id="itemType" name="itemType">
+               <option value="Starter">Starter</option>
+               <option value="Main">Main</option>
+               <option value="Desert">Desert</option>
+               <option value="Side">Side</option>
+               <option value="Drink">Drink</option>
+               </select><br><br>
+               <label for="special">Special:</label><br>
+               <select id="special" name="special">
+               <option value="yes">Yes</option>
+               <option value="no">No</option>
+               </select><br><br>
+               <button id="addDish">Add Dish</button>
+            </form>
+         </fieldset>
+      </section>
+   </body>
+</html>
