@@ -1,0 +1,38 @@
+*::after,
+*::before {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: #978897;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navBar {
+    overflow: hidden;
+    background-color: #494850;
+}
+
+.navBar a {
+    float: left;
+    display: block;
+    color: #D8D8F6;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    font-size: medium;
+}
+
+.navBar a:hover {
+    background-color: #D8D8F6;
+    color: #494850;
+}
+
+.navBar a.active {
+    background-color: #B18FCF;
+    color: #D8D8F6;
+}
