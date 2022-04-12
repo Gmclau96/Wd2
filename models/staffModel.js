@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config()
 
 class StaffDAO {
-    constructorr(dbFilePath) {
+    constructor(dbFilePath) {
         if (dbFilePath) {
             this.db = new data({
                 filename: dbFilePath,
