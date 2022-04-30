@@ -8,34 +8,34 @@
          <a href="./about.html">About Us</a>
       </div>
       <h1>{{title}}</h1>
-
-{{#entries}}
-<div class="card">
-  <div class="card-body">
-    <h4 class="card-title">{{name}}</h4>
-    <p class="card-text">
-      {{description}}
-     </p>
-     <p class="card-text">
-      {{price}}
-     </p>
-     <p class="card-text">
-      {{ingredients}}
-     </p>
-     <p class="card-text">
-      Allergies: {{allergies}}
-     </p>
-     <p class="card-text">
-      {{vegetarian}}
-     </p>
-     <p class="card-text">
-      {{vegan}}
-     </p>
-</div>
-{{/entries}}
-
-{{^entries}}
-No Menu items yet.
-{{/entries}}
+      {{#entries}}
+      <div id="accordion-Menu">
+         <button class="accordion">
+            <h4 class="name">{{name}}</h4>
+         </button>
+         <div class="panel">
+            <p class="description">
+               Description: {{description}}
+            </p>
+            <p class="price">
+               Price: {{price}}
+            </p>
+            <p class="ingredients">
+               Ingredients: {{ingredients}}
+            </p>
+            <p class="allergies">
+               {{#allergyInfo}}
+               </p>Allergies: {{allergies}}</p>
+               </p>{{vegetarian}}</p>
+               </p>{{vegan}}</p>
+               {{/allergyInfo}}
+            </p>
+         </div>
+      </div>
+      {{/entries}}
+      {{^entries}}
+      No Menu items yet.
+      {{/entries}}
+      <script src="javaScript/accordion.js"></script>
    </body>
 </html>
