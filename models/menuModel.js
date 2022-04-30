@@ -1,3 +1,4 @@
+const { promise } = require("bcrypt/promises");
 const nedb = require("nedb");
 class MenuDAO {
     constructor(dbFilePath) {
@@ -194,22 +195,76 @@ class MenuDAO {
 
     }
     getMenu() {
-        //return a Promise object, which can be resolved or rejected
         return new Promise((resolve, reject) => {
-            //use the find() function of the database to get the data,
-            //error first callback function, err for error, entries for data
             this.db.find({}).sort({ itemType: -1 }).exec(function (err, entries) {
-                //if error occurs reject Promise
                 if (err) {
                     reject(err);
-                    //if no error resolve the promise & return the data
                 } else {
                     resolve(entries);
-                    //to see what the returned data looks like
                     console.log('function all() returns: ', entries);
                 }
             })
         })
+    }
+    getLunch() {
+        return new Promise((resolve, reject) => {
+            this.db.find({ itemType: 'Lunch' }).exec(function (err, lunch) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(lunch);
+                    console.log("Today's Lunches:", lunch);
+                }
+            });
+        });
+    }
+    getDinner() {
+        return new Promise((resolve, reject) => {
+            this.db.find({ itemType: 'Dinner' }).exec(function (err, dinner) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(dinner);
+                    console.log("Today's dinner:", dinner);
+                }
+            })
+        })
+    }
+    getSides() {
+        return new Promise((resolve, reject) => {
+            this.db.find({ itemType: 'Side' }).exec(function (err, sides) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(sides);
+                    console.log("Today's sides:", sides);
+                }
+            });
+        });
+    }
+    getDesserts() {
+        return new Promise((resolve, reject) => {
+            this.db.find({ itemType: 'Dessert' }).exec(function (err, Dessert) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(Dessert);
+                    console.log("Today's Desserts:", Dessert);
+                }
+            });
+        });
+    }
+    getDrinks() {
+        return new Promise((resolve, reject) => {
+            this.db.find({ itemType: 'Drink' }).exec(function (err, Drink) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(Drink);
+                    console.log("Today's Drinks:", Drink);
+                }
+            });
+        });
     }
     addMenuItem(name, description, ingredients, allergies, vegetarian, vegan, itemType, price, special) {
         var item = {

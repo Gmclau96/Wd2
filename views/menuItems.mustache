@@ -8,8 +8,9 @@
          <a href="./about.html">About Us</a>
       </div>
       <h1>{{title}}</h1>
-      {{#entries}}
-      <div id="accordion-Menu">
+      <h3>Lunch</h3>
+      {{#lunch}}
+      <div id="lunch-Menu">
          <button class="accordion">
             <h4 class="name">{{name}}</h4>
          </button>
@@ -25,17 +26,123 @@
             </p>
             <p class="allergies">
                {{#allergyInfo}}
-               </p>Allergies: {{allergies}}</p>
-               </p>{{vegetarian}}</p>
-               </p>{{vegan}}</p>
-               {{/allergyInfo}}
+            </p>
+            Allergies: {{allergies}}</p>
+            </p>{{vegetarian}}</p>
+            </p>{{vegan}}</p>
+            {{/allergyInfo}}
             </p>
          </div>
       </div>
-      {{/entries}}
-      {{^entries}}
-      No Menu items yet.
-      {{/entries}}
+      {{/lunch}}
+      <h3>Dinner</h3>
+      {{#dinner}}
+      <div id="dinner-Menu">
+         <button class="accordion">
+            <h4 class="name">{{name}}</h4>
+         </button>
+         <div class="panel">
+            <p class="description">
+               Description: {{description}}
+            </p>
+            <p class="price">
+               Price: {{price}}
+            </p>
+            <p class="ingredients">
+               Ingredients: {{ingredients}}
+            </p>
+            <p class="allergies">
+               {{#allergyInfo}}
+            </p>
+            Allergies: {{allergies}}</p>
+            </p>{{vegetarian}}</p>
+            </p>{{vegan}}</p>
+            {{/allergyInfo}}
+            </p>
+         </div>
+      </div>
+      {{/dinner}}
+      <h3>Sides</h3>
+      {{#sides}}
+      <div id="sides-Menu">
+         <button class="accordion">
+            <h4 class="name">{{name}}</h4>
+         </button>
+         <div class="panel">
+            <p class="description">
+               Description: {{description}}
+            </p>
+            <p class="price">
+               Price: {{price}}
+            </p>
+            <p class="ingredients">
+               Ingredients: {{ingredients}}
+            </p>
+            <p class="allergies">
+               {{#allergyInfo}}
+            </p>
+            Allergies: {{allergies}}</p>
+            </p>{{vegetarian}}</p>
+            </p>{{vegan}}</p>
+            {{/allergyInfo}}
+            </p>
+         </div>
+      </div>
+      {{/sides}}
+      <h3>Desserts</h3>
+      {{#desserts}}
+      <div id="sides-Menu">
+         <button class="accordion">
+            <h4 class="name">{{name}}</h4>
+         </button>
+         <div class="panel">
+            <p class="description">
+               Description: {{description}}
+            </p>
+            <p class="price">
+               Price: {{price}}
+            </p>
+            <p class="ingredients">
+               Ingredients: {{ingredients}}
+            </p>
+            <p class="allergies">
+               {{#allergyInfo}}
+            </p>
+            Allergies: {{allergies}}</p>
+            </p>{{vegetarian}}</p>
+            </p>{{vegan}}</p>
+            {{/allergyInfo}}
+            </p>
+         </div>
+      </div>
+      {{/desserts}}
+      <h3>Drinks</h3>
+      {{#drinks}}
+      <div id="sides-Menu">
+         <button class="accordion">
+            <h4 class="name">{{name}}</h4>
+         </button>
+         <div class="panel">
+            <p class="description">
+               Description: {{description}}
+            </p>
+            <p class="price">
+               Price: {{price}}
+            </p>
+            <p class="ingredients">
+               Ingredients: {{ingredients}}
+            </p>
+            <p class="allergies">
+               {{#allergyInfo}}
+            </p>
+            Allergies: {{allergies}}</p>
+            </p>{{vegetarian}}</p>
+            </p>{{vegan}}</p>
+            {{/allergyInfo}}
+            </p>
+         </div>
+      </div>
+      {{/drinks}}
       <script src="javaScript/accordion.js"></script>
    </body>
 </html>

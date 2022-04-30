@@ -5,17 +5,33 @@ const db = new MenuDAO();
 db.init()
 
 exports.landing_page = function (req, res) {
-    db.getMenu()
-    .then((list) => {
-        res.render("menuItems", {
-          title: "Menu",
-          entries: list,
+    db.getLunch()
+        .then((lunch) => {
+            db.getDinner()
+                .then((dinner) => {
+                    db.getSides()
+                        .then((sides) => {
+                            db.getDesserts()
+                                .then((desserts) => {
+                                    db.getDrinks()
+                                        .then((drinks) => {
+                                            res.render("menuItems", {
+                                                title: "Menu",
+                                                lunch: lunch,
+                                                dinner: dinner,
+                                                sides: sides,
+                                                desserts: desserts,
+                                                drinks: drinks
+                                            });
+                                        })
+                                        .catch((err) => {
+                                            console.log("promise rejected", err);
+                                        });
+                                });
+                        });
+                });
         });
-      })
-      .catch((err) => {
-        console.log("promise rejected", err);
-      });
-  };
+};
 
 exports.get_login = function (req, res) {
     res.render('staff/login', {
