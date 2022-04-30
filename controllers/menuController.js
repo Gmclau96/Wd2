@@ -1,12 +1,21 @@
+const MenuDAO = require("../models/menuModel.js");
 const staffDao = require("../models/staffModel.js");
-const menuDao = require("../models/menuModel.js")
 
+const db = new MenuDAO();
+db.init()
 
 exports.landing_page = function (req, res) {
-    res.render('menuItems', {
-        title: 'Menu'
-    })
-}
+    db.getMenu()
+    .then((list) => {
+        res.render("menuItems", {
+          title: "Menu",
+          entries: list,
+        });
+      })
+      .catch((err) => {
+        console.log("promise rejected", err);
+      });
+  };
 
 exports.get_login = function (req, res) {
     res.render('staff/login', {

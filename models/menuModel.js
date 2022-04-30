@@ -26,7 +26,7 @@ class MenuDAO {
             description: 'A classic beef stroganoff with steak and mushroom served with fresh parsley over pappardelle pasta',
             ingredients: ['Olive oil', 'Brown onion', 'Garlic', 'Butter', 'Mushrooms', 'Fresh parsley',
                 'Plain flour', 'Fillet steak', 'Crème fraîche', 'English mustard', 'Beef stock'],
-            allergies: ['Fillet steak', 'Crème fraîche', 'English mustard', 'Beef stock'],
+            allergies: ['Crème fraîche', 'English mustard'],
             vegetarian: false,
             vegan: false,
             price: '£12.50',
@@ -101,7 +101,7 @@ class MenuDAO {
             description: 'Moreish rice balls with spicy nduja sausage, gooey mozzarella filling and crunchy breadcrumb coating',
             ingredients: ['Olive oil', 'Brown onion', 'Garlic', 'Fennel seeds', 'Risotto rice', 'Chopped tomatoes', 'Chicken stock',
                 'Parmigiano reggiano', 'Nduja sausage', 'Mozzarella', 'Plain flour', 'Medium eggs', 'Panko breadcrumbs', 'Vegetable oil'],
-            allergies: ['Chicken stock', 'Parmigiano reggiano', 'Nduja sausage', 'Mozzarella', 'Medium eggs'],
+            allergies: ['Parmigiano reggiano', 'Mozzarella', 'Medium eggs'],
             vegetarian: false,
             vegan: false,
             price: '£3.50',
@@ -127,26 +127,62 @@ class MenuDAO {
             price: '£2.40',
             itemType: 'Drink',
             special: true
+        }, {
+            name: 'Lemon cheesecake',
+            description: 'A zingy cheesecake slice with creamy lemon',
+            ingredients: ['Digestive biscuits', 'Butter', 'Light brown soft sugar', 'Mascarpone', 'Caster sugar', 'Lemon Zest & juice'],
+            allergies: ['Mascarpone'],
+            vegetarian: true,
+            vegan: false,
+            price: '£3.50',
+            itemType: 'Dessert',
+            special: true
+        }, {
+            name: 'Rhubarb crumble',
+            description: 'A stunning dessert using in season rhubarb',
+            ingredients: ['Rhubarb', 'Butter', 'Golden caster sugar', 'Self-raising flour', 'Light brown muscovado sugar'],
+            allergies: null,
+            vegetarian: true,
+            vegan: false,
+            price: '£2.90',
+            itemType: 'Dessert',
+            special: true
+        }, {
+            name: 'Mango sorbet',
+            description: "Low in fat, it's the perfect dessert for warm, balmy days",
+            ingredients: ['Ripe mangoes', 'Caster sugar', 'Lime juice'],
+            allergies: null,
+            vegetarian: true,
+            vegan: true,
+            price: '£2.50',
+            itemType: 'Dessert',
+            special: true
         }
-        ])
-        this.db.find({}).sort({ name: 1 }).exec(function (err, docs) {
+        ]);
+        this.db.find({}).sort({ itemType: 1 }).exec(function (err, docs) {
             console.log(docs);
         });
-        
+
     }
     getMenu() {
-        return new promise((resolve, reject) => {
-            this.db.find({}, function (err, entries) {
+        //return a Promise object, which can be resolved or rejected
+        return new Promise((resolve, reject) => {
+            //use the find() function of the database to get the data,
+            //error first callback function, err for error, entries for data
+            this.db.find({}).sort({ itemType: -1 }).exec(function (err, entries) {
+                //if error occurs reject Promise
                 if (err) {
                     reject(err);
+                    //if no error resolve the promise & return the data
                 } else {
                     resolve(entries);
-                    console.log('Menu: ', entries);
+                    //to see what the returned data looks like
+                    console.log('function all() returns: ', entries);
                 }
             })
         })
     }
-    addMenuItem(name, description, ingredients, price, itemType, special) {
+    addMenuItem(name, description, ingredients, allergies, vegetarian, vegan, itemType, price, special) {
         var item = {
             name: name,
             description: description,
@@ -168,6 +204,4 @@ class MenuDAO {
         })
     }
 }
-const dao = new MenuDAO();
-dao.init();
-module.exports = dao;
+module.exports = MenuDAO;
