@@ -5,24 +5,13 @@ const dotenv = require('dotenv');
 dotenv.config()
 
 class StaffDAO {
-    constructor(dbFilePath) {
-        if (dbFilePath) {
-            this.db = new data({
-                filename: dbFilePath,
-                autoload: true
-            });
-        } else {
-            this.db = new data();
-        }
+    constructor() {
+        this.db = new data({ filename: "./databases/staff.db", autoload: true });
+        console.log('Connected to Staff database ');
     }
     //creates a staff member called Gordon with the password being stored in the .env file
     init() {
-        this.db.insert({
-            user: "Gordon",
-            passwowrd: process.env.GordonPassword
-        });
-        console.log("Staff member Gordon added");
-        return this;
+
     }
     create(username, password) {
         const that = this;

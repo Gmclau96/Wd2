@@ -2,7 +2,6 @@ const MenuDAO = require("../models/menuModel.js");
 const staffDao = require("../models/staffModel.js");
 
 const db = new MenuDAO();
-db.init()
 
 exports.landing_page = function (req, res) {
     db.getLunch()
