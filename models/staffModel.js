@@ -9,10 +9,6 @@ class StaffDAO {
         this.db = new data({ filename: "./databases/staff.db", autoload: true });
         console.log('Connected to Staff database ');
     }
-    //creates a staff member called Gordon with the password being stored in the .env file
-    init() {
-
-    }
     create(username, password) {
         const that = this;
         bcrypt.hash(password, salt).then(function (hash) {
@@ -42,6 +38,5 @@ class StaffDAO {
     }
 }
 const dao = new StaffDAO();
-dao.init();
 module.exports = dao;
 

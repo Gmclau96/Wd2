@@ -2,9 +2,9 @@ const { promise } = require("bcrypt/promises");
 const nedb = require("nedb");
 class MenuDAO {
     constructor() {
-            this.db = new nedb({ filename: "./databases/menu.db", autoload: true });
-            console.log('Connected to Menu database ');
-        
+        this.db = new nedb({ filename: "./databases/menu.db", autoload: true });
+        console.log('Connected to Menu database ');
+
     }
     // getMenu() {
     //     return new Promise((resolve, reject) => {

@@ -22,7 +22,7 @@ menu.insert([{
     ingredients: [' Olive oil ', ' Brown onion ', ' Garlic ', ' Butter ', ' Mushrooms ', ' Fresh parsley ',
         ' Plain flour ', ' Fillet steak ', ' Crème fraîche ', ' English mustard ', ' Beef stock '],
     allergyInfo: [{
-        allergies: [' Crème fraîche ', ' English mustard '],
+        allergies: [' Dairy ', ' Mustard '],
         vegetarian: null,
         vegan: null
     }],
@@ -35,7 +35,7 @@ menu.insert([{
     ingredients: [' Rapeseed oil ', ' Courgettes ', ' Large eggs ', ' Garlic cloves ', ' Red chilli ', ' Chilli powder ',
         ' Ground cumin ', ' Ground coriander ', ' Fresh coriander ', ' Fresh peas ', ' Feta cheese '],
     allergyInfo: [{
-        allergies: [' Large eggs ', ' Feta cheese '],
+        allergies: [' Eggs ', ' Dairy '],
         vegetarian: 'Vegetarian friendly',
         vegan: null
     }],
@@ -48,7 +48,7 @@ menu.insert([{
     ingredients: [' Olive oil ', ' Brown onion ', ' Carrot ', ' Fresh thyme ', ' Red wine ', ' Chopped tomatoes ', ' Vegetable stock ',
         ' Green lentils ', ' Sweet potatoes ', ' Butter ', ' Mature cheddar '],
     allergyInfo: [{
-        allergies: [' Mature cheddar '],
+        allergies: [' Dairy '],
         vegetarian: 'Vegetarian friendly',
         vegan: null
     }],
@@ -61,7 +61,7 @@ menu.insert([{
     ingredients: [' Bulgur wheat ', ' Edammame peas ', ' Romano peppers ', ' Radishes ', ' Whole blanched almonds ', ' Fresh mint ',
         ' Fresh parsley ', ' Oranges ', ' Olive oil '],
     allergyInfo: [{
-        allergies: ['Whole blanched almonds '],
+        allergies: [' Nuts '],
         vegetarian: 'Vegetarian friendly',
         vegan: 'Vegan Friendly'
     }],
@@ -99,7 +99,7 @@ menu.insert([{
     description: 'Perfect as a starter or as a side dish ',
     ingredients: [' Mayonnaise ', ' Butter ', ' Fresh basil ', ' Ciabatta bread ', ' Parmigiano reggiano ', ' Garlic '],
     allergyInfo: [{
-        allergies: [' Mayonnaise ', ' Parmigiano reggiano '],
+        allergies: [' Eggs ', ' Dairy '],
         vegetarian: 'Vegetarian friendly',
         vegan: null
     }],
@@ -112,7 +112,7 @@ menu.insert([{
     ingredients: [' Olive oil ', ' Brown onion ', ' Garlic ', ' Fennel seeds ', ' Risotto rice ', ' Chopped tomatoes ', ' Chicken stock ',
         ' Parmigiano reggiano ', ' Nduja sausage ', ' Mozzarella ', ' Plain flour ', ' Medium eggs ', ' Panko breadcrumbs ', ' Vegetable oil '],
     allergyInfo: [{
-        allergies: [' Parmigiano reggiano ', ' Mozzarella ', ' Medium eggs '],
+        allergies: [' Dairy ',  ' Eggs '],
         vegetarian: null,
         vegan: null
     }],
@@ -124,7 +124,7 @@ menu.insert([{
     description: 'A refreshing boost of caffeiene',
     ingredients: [' Espresso shots ', ' Sugar ', ' Ice ', ' Caramel syrup ', ' Whole milk '],
     allergyInfo: [{
-        allergies: [' Whole milk '],
+        allergies: [' Dairy '],
         vegetarian: 'Vegetarian friendly',
         vegan: null
     }],
@@ -148,7 +148,7 @@ menu.insert([{
     description: 'A zingy cheesecake slice with creamy lemon',
     ingredients: [' Digestive biscuits ', ' Butter ', ' Light brown soft sugar ', ' Mascarpone ', ' Caster sugar ', ' Lemon Zest & juice '],
     allergyInfo: [{
-        allergies: [' Mascarpone '],
+        allergies: [' Dairy '],
         vegetarian: 'Vegetarian friendly',
         vegan: null
     }],

@@ -11,13 +11,25 @@
       <section>
          <fieldset>
             <legend>Add dish:</legend>
-            <form>
+            <form method="post" action="newItem">
                <label for="name">Name:</label><br>
                <input type="text" id="name" name="name"><br><br>
                <label for="description">Description:</label><br>
                <input type="text" id="description" name="description"><br><br>               
                <label for="ingredients">Ingredients:</label><br>
                <input type="text" id="ingredients" name="ingredients"><br><br>
+               <label for="allergies">Allergies:</label><br>
+               <input type="text" id="allergies" name="allergies"><br><br>
+               <label for="vegetarian">Vegetarian friendly:</label><br>
+               <select id="vegetarian" name="vegetarian">
+               <option value="True">True</option>
+               <option value="False">False</option>
+               </select><br><br>
+              <label for="vegan">Vegan friendly:</label><br>
+               <select id="vegan" name="vegan">
+               <option value="True">True</option>
+               <option value="False">False</option>
+               </select><br><br>
                <label for="price">Price:</label><br>
                <input type="text" id="price" name="price"><br><br>
                <label for="itemType">Item Type:</label><br>
@@ -33,7 +45,7 @@
                <option value="True">True</option>
                <option value="False">False</option>
                </select><br><br>
-               <button id="addDish">Add Dish</button>
+               <button id="addDish" >Add Dish</button>
             </form>
          </fieldset>
       </section>

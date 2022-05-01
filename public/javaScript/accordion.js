@@ -1,3 +1,4 @@
+//interactivity on buttton click for accordion menuj
 var acc = document.getElementsByClassName("accordion");
 var i;
 

@@ -44,6 +44,37 @@ exports.get_newItem = function (req, res) {
     })
 }
 
+exports.post_newItem = function (req, res) {
+    let allergies = req.body.allergies;
+    if (allergies == "") {
+        allergies = null
+    }
+    let vegetarian = req.body.vegetarian;
+    if (vegetarian == "True") {
+        vegetarian = "Vegetarian friendly"
+    } else {
+        vegetarian = null
+    }
+    let vegan = req.body.vegan;
+    if (vegan == "True") {
+        vegan = "Vegan friendly"
+    } else {
+        vegan = null
+    }
+    db.addMenuItem(
+        req.body.name,
+        req.body.description,
+        req.body.ingredients,
+        allergies,
+        vegetarian,
+        vegan,
+        req.body.itemType,
+        req.body.price,
+        req.body.special
+    );
+    db.getSides();
+};
+
 exports.get_addUser = function (req, res) {
     res.render('staff/addUser', {
         title: 'Add User'
