@@ -40,13 +40,12 @@ exports.get_login = function (req, res) {
 
 exports.post_login = function (req, res) {
     res.render('staff/newItem', {
-        title: 'New Item',
-        user: "user"
+        title: 'New Item'
     });
 };
 
 exports.get_newItem = function (req, res) {
-    res.render('staff/newItem', {
+    res.redirect('staff/newItem', {
         title: 'New Item'
     });
 }
@@ -85,4 +84,23 @@ exports.get_addUser = function (req, res) {
     res.render('staff/addUser', {
         title: 'Add User'
     });
+};
+
+exports.post_addUser = function (req, res) {
+    const username = req.body.username;
+    const password = req.body.password;
+    staffDao.lookup(username, function (error, match) {
+        if (match) {
+            res.status(401).send("User already exists");
+            return;
+        }
+        staffDao.create(username, password);
+        console.log("New user created ", username, " with the password ", password);
+        res.redirect("/login");
+    });
+};
+
+exports.logout = function (req, res) {
+    res.cookie("jwt", "", { maxAge: 1 });
+    res.redirect("/");
 };

@@ -13,11 +13,11 @@
             <legend>Add dish:</legend>
             <form method="post" action="newItem">
                <label for="name">Name:</label><br>
-               <input type="text" id="name" name="name"><br><br>
+               <input type="text" id="name" name="name" required><br><br>
                <label for="description">Description:</label><br>
-               <input type="text" id="description" name="description"><br><br>               
+               <input type="text" id="description" name="description" required><br><br>               
                <label for="ingredients">Ingredients:</label><br>
-               <input type="text" id="ingredients" name="ingredients"><br><br>
+               <input type="text" id="ingredients" name="ingredients" required><br><br>
                <label for="allergies">Allergies:</label><br>
                <input type="text" id="allergies" name="allergies"><br><br>
                <label for="vegetarian">Vegetarian friendly:</label><br>
@@ -31,7 +31,7 @@
                <option value="False">False</option>
                </select><br><br>
                <label for="price">Price:</label><br>
-               <input type="text" id="price" name="price"><br><br>
+               <input type="text" id="price" name="price" required><br><br>
                <label for="itemType">Item Type:</label><br>
                <select id="itemType" name="itemType">
                <option value="Lunch">Lunch</option>
