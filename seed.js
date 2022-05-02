@@ -113,7 +113,7 @@ menu.insert([{
     ingredients: [' Olive oil ', ' Brown onion ', ' Garlic ', ' Fennel seeds ', ' Risotto rice ', ' Chopped tomatoes ', ' Chicken stock ',
         ' Parmigiano reggiano ', ' Nduja sausage ', ' Mozzarella ', ' Plain flour ', ' Medium eggs ', ' Panko breadcrumbs ', ' Vegetable oil '],
     allergyInfo: [{
-        allergies: [' Dairy ',  ' Eggs '],
+        allergies: [' Dairy ', ' Eggs '],
         vegetarian: null,
         vegan: null
     }],
@@ -186,7 +186,7 @@ menu.find({}).sort({ itemType: 1 }).exec(function (err, specials) {
     console.log("Chef Specials:", specials);
 });
 
-bcrypt.hash("Password123", 10, function(err, hash) {
+bcrypt.hash(process.env.GordonPassword, 10, function (err, hash) {
     // Store hash in your password DB.
     staff.insert({
         user: "Gordon",
@@ -195,6 +195,6 @@ bcrypt.hash("Password123", 10, function(err, hash) {
 });
 
 console.log("Staff member Gordon added");
-staff.find({}, function (err,staff){
+staff.find({}, function (err, staff) {
     console.log(staff);//all docs
 });
