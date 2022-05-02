@@ -14,7 +14,7 @@ class StaffDAO {
         bcrypt.hash(password, salt).then(function (hash) {
             var entry = {
                 user: username,
-                password: hash,
+                password: hash
             };
             that.db.insert(entry, function (err) {
                 if (err) {
@@ -23,16 +23,15 @@ class StaffDAO {
             });
         });
     }
-    lookup(user, callback) {
+    lookup(user, cb) {
         this.db.find({ 'user': user }, function (err, entries) {
             if (err) {
-                callback
-                return callback(null, null);
+                return cb(null, null);
             } else {
                 if (entries.length == 0) {
-                    return callback(null, null);
+                    return cb(null, null);
                 }
-                return callback(null.entries[0]);
+                return cb(null, entries[0]);
             }
         });
     }

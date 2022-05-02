@@ -38,10 +38,17 @@ exports.get_login = function (req, res) {
     })
 }
 
+exports.post_login = function (req, res) {
+    res.render('staff/newItem', {
+        title: 'New Item',
+        user: "user"
+    });
+};
+
 exports.get_newItem = function (req, res) {
     res.render('staff/newItem', {
         title: 'New Item'
-    })
+    });
 }
 
 exports.post_newItem = function (req, res) {
@@ -72,11 +79,10 @@ exports.post_newItem = function (req, res) {
         req.body.price,
         req.body.special
     );
-    db.getSides();
 };
 
 exports.get_addUser = function (req, res) {
     res.render('staff/addUser', {
         title: 'Add User'
-    })
-}
+    });
+};

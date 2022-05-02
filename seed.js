@@ -1,5 +1,6 @@
 const nedb = require("nedb");
 const dotenv = require('dotenv');
+const bcrypt = require("bcrypt");
 dotenv.config()
 const menu = new nedb({ filename: "./databases/menu.db", autoload: true });
 const staff = new nedb({ filename: "./databases/staff.db", autoload: true });
@@ -185,11 +186,14 @@ menu.find({}).sort({ itemType: 1 }).exec(function (err, specials) {
     console.log("Chef Specials:", specials);
 });
 
-
-staff.insert({
-    user: "Gordon",
-    passwowrd: process.env.GordonPassword
+bcrypt.hash("Password123", 10, function(err, hash) {
+    // Store hash in your password DB.
+    staff.insert({
+        user: "Gordon",
+        password: hash
+    });
 });
+
 console.log("Staff member Gordon added");
 staff.find({}, function (err,staff){
     console.log(staff);//all docs
