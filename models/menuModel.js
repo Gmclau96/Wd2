@@ -9,8 +9,8 @@ class MenuDAO {
     //sets all dishes to unavailable on app launch (start of day)
 
     init() {
-        this.db.update({ available: 'true' }, { $set: { available: false } }, {multi: true }, function (err, num) {
-            console.log(num," set to unavailable");
+        this.db.update({ available: 'true' }, { $set: { available: false } }, { multi: true }, function (err, num) {
+            console.log(num, " dishes set to unavailable");
         });
         return this;
     }
@@ -28,7 +28,7 @@ class MenuDAO {
     // }
     getLunch() {
         return new Promise((resolve, reject) => {
-            this.db.find({ itemType: 'Lunch' }).exec(function (err, lunch) {
+            this.db.find({ $and: [{ itemType: 'Lunch' }, { available: 'true' }] }, function (err, lunch) {
                 if (err) {
                     reject(err);
                 } else {
@@ -39,7 +39,7 @@ class MenuDAO {
     }
     getDinner() {
         return new Promise((resolve, reject) => {
-            this.db.find({ itemType: 'Dinner' }).exec(function (err, dinner) {
+            this.db.find({ $and: [{ itemType: 'Dinner' }, { available: 'true' }] }, function (err, dinner) {
                 if (err) {
                     reject(err);
                 } else {
@@ -50,7 +50,7 @@ class MenuDAO {
     }
     getSides() {
         return new Promise((resolve, reject) => {
-            this.db.find({ itemType: 'Side' }).exec(function (err, sides) {
+            this.db.find({ $and: [{ itemType: 'Side' }, { available: 'true' }] }, function (err, sides) {
                 if (err) {
                     reject(err);
                 } else {
@@ -61,7 +61,7 @@ class MenuDAO {
     }
     getDesserts() {
         return new Promise((resolve, reject) => {
-            this.db.find({ itemType: 'Dessert' }).exec(function (err, Dessert) {
+            this.db.find({ $and: [{ itemType: 'Dessert' }, { available: 'true' }] }, function (err, Dessert) {
                 if (err) {
                     reject(err);
                 } else {
@@ -72,7 +72,7 @@ class MenuDAO {
     }
     getDrinks() {
         return new Promise((resolve, reject) => {
-            this.db.find({ itemType: 'Drink' }).exec(function (err, Drink) {
+            this.db.find({ $and: [{ itemType: 'Drink' }, { available: 'true' }] }, function (err, Drink) {
                 if (err) {
                     reject(err);
                 } else {

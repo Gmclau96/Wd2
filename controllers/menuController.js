@@ -14,7 +14,7 @@ exports.landing_page = function (req, res) {
                                 .then((desserts) => {
                                     db.getDrinks()
                                         .then((drinks) => {
-                                            res.render("menuItems", {
+                                            res.render("menu", {
                                                 title: "Menu",
                                                 lunch: lunch,
                                                 dinner: dinner,
