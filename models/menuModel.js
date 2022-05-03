@@ -6,6 +6,14 @@ class MenuDAO {
         console.log('Connected to Menu database ');
 
     }
+    //sets all dishes to unavailable on app launch (start of day)
+
+    init() {
+        this.db.update({ available: 'true' }, { $set: { available: false } }, {multi: true }, function (err, num) {
+            console.log(num," set to unavailable");
+        });
+        return this;
+    }
     // getMenu() {
     //     return new Promise((resolve, reject) => {
     //         this.db.find({}).sort({ itemType: -1 }).exec(function (err, entries) {
@@ -73,7 +81,7 @@ class MenuDAO {
             });
         });
     }
-    addMenuItem(name, description, ingredients, allergies, vegetarian, vegan, itemType, price, special) {
+    addMenuItem(name, description, ingredients, allergies, vegetarian, vegan, itemType, price, special, available) {
         var item = {
             name: name,
             description: description,
@@ -85,7 +93,8 @@ class MenuDAO {
             }],
             price: price,
             itemType: itemType,
-            special: special
+            special: special,
+            available: available
         }
         console.log("Menu item created", item);
         this.db.insert(item, function (err, doc) {
@@ -97,4 +106,7 @@ class MenuDAO {
         })
     }
 }
+
+const dao = new MenuDAO();
+dao.init();
 module.exports = MenuDAO;

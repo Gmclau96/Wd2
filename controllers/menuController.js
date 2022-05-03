@@ -45,7 +45,7 @@ exports.post_login = function (req, res) {
 };
 
 exports.get_newItem = function (req, res) {
-    res.redirect('staff/newItem', {
+    res.render('staff/newItem', {
         title: 'New Item'
     });
 }
@@ -76,7 +76,8 @@ exports.post_newItem = function (req, res) {
         vegan,
         req.body.itemType,
         req.body.price,
-        req.body.special
+        req.body.special,
+        req.body.available
     );
 };
 

@@ -16,7 +16,8 @@ menu.insert([{
     }],
     price: '£11.00',
     itemType: 'Lunch',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Beef stroganoff',
     description: 'A classic beef stroganoff with steak and mushroom served with fresh parsley over pappardelle pasta',
@@ -29,7 +30,8 @@ menu.insert([{
     }],
     price: '£12.50',
     itemType: 'Dinner',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Masala omelette muffins',
     description: 'A fresh and creamy pesto sauce, served over wholemeal pasta',
@@ -42,7 +44,8 @@ menu.insert([{
     }],
     price: '£9.50',
     itemType: 'Lunch',
-    special: true
+    special: true,
+    available: false
 }, {
     name: "Veggie shepherd's pie with sweet potato mash",
     description: 'A warming and hearty shepher pie with sweet potato',
@@ -55,7 +58,8 @@ menu.insert([{
     }],
     price: '£10.50',
     itemType: 'Dinner',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Crunchy bulgur salad',
     description: 'A vibrant summer salad with radishes, edamame beans, peppers, almonds and herbs, drizzled with a citrus dressing',
@@ -68,7 +72,8 @@ menu.insert([{
     }],
     price: '£10.00',
     itemType: 'Lunch',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Vegan chickpea curry jacket potatoes',
     description: 'Get some protein into a vegan diet with this tasty chickpea curry jacket',
@@ -82,7 +87,8 @@ menu.insert([{
     }],
     price: '£11.00',
     itemType: 'Dinner',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Chips',
     description: 'A side portion of chips',
@@ -94,7 +100,8 @@ menu.insert([{
     }],
     price: '£2.00',
     itemType: 'Side',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Garlic & basil ciabatta',
     description: 'Perfect as a starter or as a side dish ',
@@ -106,7 +113,8 @@ menu.insert([{
     }],
     price: '£2.00',
     itemType: 'Side',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Spicy nduja arancini',
     description: 'Moreish rice balls with spicy nduja sausage, gooey mozzarella filling and crunchy breadcrumb coating',
@@ -119,7 +127,8 @@ menu.insert([{
     }],
     price: '£3.50',
     itemType: 'Side',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Caramel iced latte',
     description: 'A refreshing boost of caffeiene',
@@ -131,7 +140,8 @@ menu.insert([{
     }],
     price: '£2.20',
     itemType: 'Drink',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Carrot and orange smoothie',
     description: 'A smoothie that counts towards your 5 a day and packed with Vitamin C',
@@ -143,7 +153,8 @@ menu.insert([{
     }],
     price: '£2.40',
     itemType: 'Drink',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Lemon cheesecake',
     description: 'A zingy cheesecake slice with creamy lemon',
@@ -155,7 +166,8 @@ menu.insert([{
     }],
     price: '£3.50',
     itemType: 'Dessert',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Rhubarb crumble',
     description: 'A stunning dessert using in season rhubarb',
@@ -167,7 +179,8 @@ menu.insert([{
     }],
     price: '£2.90',
     itemType: 'Dessert',
-    special: true
+    special: true,
+    available: false
 }, {
     name: 'Mango sorbet',
     description: "Low in fat, it's the perfect dessert for warm, balmy days",
@@ -179,7 +192,8 @@ menu.insert([{
     }],
     price: '£2.50',
     itemType: 'Dessert',
-    special: true
+    special: true,
+    available: false
 }
 ]);
 menu.find({}).sort({ itemType: 1 }).exec(function (err, specials) {
