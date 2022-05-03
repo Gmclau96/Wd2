@@ -9,6 +9,8 @@ router.get("/login", controller.get_login);
 router.post("/login", login, controller.post_login);
 router.get("/newItem", authenticate, controller.get_newItem);
 router.post("/newItem", authenticate, controller.post_newItem);
+router.get("/setMenu", authenticate, controller.get_setMenu);
+router.post("/setMenu", authenticate, controller.post_setMenu);
 router.get("/addUser", authenticate, controller.get_addUser);
 router.post("/addUser", authenticate, controller.post_addUser);
 router.get("/logout", controller.logout);

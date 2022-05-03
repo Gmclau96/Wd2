@@ -15,21 +15,10 @@ menu.insert([{
         vegan: null
     }],
     price: '£11.00',
-    itemType: 'Lunch',
-    special: true,
-    available: false
-}, {
-    name: 'Beef stroganoff',
-    description: 'A classic beef stroganoff with steak and mushroom served with fresh parsley over pappardelle pasta',
-    ingredients: [' Olive oil ', ' Brown onion ', ' Garlic ', ' Butter ', ' Mushrooms ', ' Fresh parsley ',
-        ' Plain flour ', ' Fillet steak ', ' Crème fraîche ', ' English mustard ', ' Beef stock '],
-    allergyInfo: [{
-        allergies: [' Dairy ', ' Mustard '],
-        vegetarian: null,
-        vegan: null
+    dish: [{
+        itemType: 'Lunch',
+        itemId: 1
     }],
-    price: '£12.50',
-    itemType: 'Dinner',
     special: true,
     available: false
 }, {
@@ -43,21 +32,10 @@ menu.insert([{
         vegan: null
     }],
     price: '£9.50',
-    itemType: 'Lunch',
-    special: true,
-    available: false
-}, {
-    name: "Veggie shepherd's pie with sweet potato mash",
-    description: 'A warming and hearty shepher pie with sweet potato',
-    ingredients: [' Olive oil ', ' Brown onion ', ' Carrot ', ' Fresh thyme ', ' Red wine ', ' Chopped tomatoes ', ' Vegetable stock ',
-        ' Green lentils ', ' Sweet potatoes ', ' Butter ', ' Mature cheddar '],
-    allergyInfo: [{
-        allergies: [' Dairy '],
-        vegetarian: 'Vegetarian friendly',
-        vegan: null
+    dish: [{
+        itemType: 'Lunch',
+        itemId: 1
     }],
-    price: '£10.50',
-    itemType: 'Dinner',
     special: true,
     available: false
 }, {
@@ -71,7 +49,44 @@ menu.insert([{
         vegan: 'Vegan Friendly'
     }],
     price: '£10.00',
-    itemType: 'Lunch',
+    dish: [{
+        itemType: 'Lunch',
+        itemId: 1
+    }],
+    special: true,
+    available: false
+}, {
+    name: 'Beef stroganoff',
+    description: 'A classic beef stroganoff with steak and mushroom served with fresh parsley over pappardelle pasta',
+    ingredients: [' Olive oil ', ' Brown onion ', ' Garlic ', ' Butter ', ' Mushrooms ', ' Fresh parsley ',
+        ' Plain flour ', ' Fillet steak ', ' Crème fraîche ', ' English mustard ', ' Beef stock '],
+    allergyInfo: [{
+        allergies: [' Dairy ', ' Mustard '],
+        vegetarian: null,
+        vegan: null
+    }],
+    price: '£12.50',
+    dish: [{
+        itemType: 'Dinner',
+        itemId: 2
+    }],
+    special: true,
+    available: false
+}, {
+    name: "Veggie shepherd's pie with sweet potato mash",
+    description: 'A warming and hearty shepher pie with sweet potato',
+    ingredients: [' Olive oil ', ' Brown onion ', ' Carrot ', ' Fresh thyme ', ' Red wine ', ' Chopped tomatoes ', ' Vegetable stock ',
+        ' Green lentils ', ' Sweet potatoes ', ' Butter ', ' Mature cheddar '],
+    allergyInfo: [{
+        allergies: [' Dairy '],
+        vegetarian: 'Vegetarian friendly',
+        vegan: null
+    }],
+    price: '£10.50',
+    dish: [{
+        itemType: 'Dinner',
+        itemId: 2
+    }],
     special: true,
     available: false
 }, {
@@ -86,7 +101,10 @@ menu.insert([{
         vegan: 'Vegan Friendly'
     }],
     price: '£11.00',
-    itemType: 'Dinner',
+    dish: [{
+        itemType: 'Dinner',
+        itemId: 2
+    }],
     special: true,
     available: false
 }, {
@@ -99,7 +117,10 @@ menu.insert([{
         vegan: 'Vegan Friendly'
     }],
     price: '£2.00',
-    itemType: 'Side',
+    dish: [{
+        itemType: 'Side',
+        itemId: 3
+    }],
     special: true,
     available: false
 }, {
@@ -112,7 +133,10 @@ menu.insert([{
         vegan: null
     }],
     price: '£2.00',
-    itemType: 'Side',
+    dish: [{
+        itemType: 'Side',
+        itemId: 3
+    }],
     special: true,
     available: false
 }, {
@@ -126,33 +150,10 @@ menu.insert([{
         vegan: null
     }],
     price: '£3.50',
-    itemType: 'Side',
-    special: true,
-    available: false
-}, {
-    name: 'Caramel iced latte',
-    description: 'A refreshing boost of caffeiene',
-    ingredients: [' Espresso shots ', ' Sugar ', ' Ice ', ' Caramel syrup ', ' Whole milk '],
-    allergyInfo: [{
-        allergies: [' Dairy '],
-        vegetarian: 'Vegetarian friendly',
-        vegan: null
+    dish: [{
+        itemType: 'Side',
+        itemId: 3
     }],
-    price: '£2.20',
-    itemType: 'Drink',
-    special: true,
-    available: false
-}, {
-    name: 'Carrot and orange smoothie',
-    description: 'A smoothie that counts towards your 5 a day and packed with Vitamin C',
-    ingredients: [' Carrot ', ' Orange ', ' Fresh ginger ', ' Oats ', ' Ice '],
-    allergyInfo: [{
-        allergies: null,
-        vegetarian: 'Vegetarian friendly',
-        vegan: 'Vegan Friendly'
-    }],
-    price: '£2.40',
-    itemType: 'Drink',
     special: true,
     available: false
 }, {
@@ -165,7 +166,10 @@ menu.insert([{
         vegan: null
     }],
     price: '£3.50',
-    itemType: 'Dessert',
+    dish: [{
+        itemType: 'Dessert',
+        itemId: 4
+    }],
     special: true,
     available: false
 }, {
@@ -178,7 +182,10 @@ menu.insert([{
         vegan: null
     }],
     price: '£2.90',
-    itemType: 'Dessert',
+    dish: [{
+        itemType: 'Dessert',
+        itemId: 4
+    }],
     special: true,
     available: false
 }, {
@@ -191,7 +198,42 @@ menu.insert([{
         vegan: 'Vegan Friendly'
     }],
     price: '£2.50',
-    itemType: 'Dessert',
+    dish: [{
+        itemType: 'Dessert',
+        itemId: 4
+    }],
+    special: true,
+    available: false
+}, {
+    name: 'Caramel iced latte',
+    description: 'A refreshing boost of caffeiene',
+    ingredients: [' Espresso shots ', ' Sugar ', ' Ice ', ' Caramel syrup ', ' Whole milk '],
+    allergyInfo: [{
+        allergies: [' Dairy '],
+        vegetarian: 'Vegetarian friendly',
+        vegan: null
+    }],
+    price: '£2.20',
+    dish: [{
+        itemType: 'Drink',
+        itemId: 5
+    }],
+    special: true,
+    available: false
+}, {
+    name: 'Carrot and orange smoothie',
+    description: 'A smoothie that counts towards your 5 a day and packed with Vitamin C',
+    ingredients: [' Carrot ', ' Orange ', ' Fresh ginger ', ' Oats ', ' Ice '],
+    allergyInfo: [{
+        allergies: null,
+        vegetarian: 'Vegetarian friendly',
+        vegan: 'Vegan Friendly'
+    }],
+    price: '£2.40',
+    dish: [{
+        itemType: 'Drink',
+        itemId: 5
+    }],
     special: true,
     available: false
 }

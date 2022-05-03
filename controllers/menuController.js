@@ -2,6 +2,7 @@ const MenuDAO = require("../models/menuModel.js");
 const staffDao = require("../models/staffModel.js");
 
 const db = new MenuDAO();
+db.init();
 
 exports.landing_page = function (req, res) {
     db.getLunch()
@@ -67,6 +68,22 @@ exports.post_newItem = function (req, res) {
     } else {
         vegan = null
     }
+
+    if (req.body.itemType == "Lunch") {
+        itemId = 1
+    }
+    if (req.body.itemType == "Dinner") {
+        itemId = 2
+    }
+    if (req.body.itemType == "Side") {
+        itemId = 3
+    }
+    if (req.body.itemType == "Dessert") {
+        itemId = 4
+    }
+    if (req.body.itemType == "Drink") {
+        itemId = 5
+    }
     db.addMenuItem(
         req.body.name,
         req.body.description,
@@ -74,11 +91,32 @@ exports.post_newItem = function (req, res) {
         allergies,
         vegetarian,
         vegan,
-        req.body.itemType,
         req.body.price,
+        req.body.itemType,
+        itemId,
         req.body.special,
         req.body.available
     );
+    res.redirect('/newItem');
+};
+
+exports.get_setMenu = function (req, res) {
+    db.getMenu()
+        .then((menu) => {
+            res.render("staff/setMenu", {
+                title: "Set Today's Menu",
+                menu: menu,
+            });
+        })
+        .catch((err) => {
+            console.log("promise rejected", err);
+        });
+};
+
+exports.post_setMenu = function (req, res) {
+    console.log("req body is", req.body.dish);
+
+    db.setAvailable(req.body.dish);
 };
 
 exports.get_addUser = function (req, res) {

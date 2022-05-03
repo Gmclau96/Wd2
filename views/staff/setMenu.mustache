@@ -8,8 +8,15 @@
          <a href="./about.html">About Us</a>
       </div>
       <h1>{{title}}</h1>
-      <section>
-         
-      </section>
+
+
+         {{#menu}}
+         <form method="post">
+         <input class="dish" value="{{name}}" name="dish" readonly>
+         <button type="submit" formaction="/setMenu">Make available</button>
+         <button type="submit" formaction="">Edit Dish</button>
+         </form>
+         {{/menu}}
+
    </body>
 </html>
