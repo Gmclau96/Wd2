@@ -1,0 +1,58 @@
+<html>
+   <head>
+      {{>header}}
+   </head>
+   <body>
+
+      <div class="navBar">
+         <a href="/">Menu</a>
+         <a href="./about" class="active">About Us</a>
+         {{#user}}
+        <a href="/addUser">Add User</a>
+         <a href="/newItem">Add dish</a>
+         <a href="/setMenu" >Set Menu</a>
+         <a href="/logout">Logout</a>
+         {{/user}}
+{{^user}}
+{{/user}}
+</div>
+    <h1>WD2 About Us</h1>
+
+    <div id="about-us-text">
+        <p>Welcome to WD2’s new online site!</p>
+
+        <p>WD2 Resteraunt opened in 1967 and is a fanily owned business. We specialise in using only the freshest
+            inredients
+            to create high quality meals. All chefs at WD2 have completed chef school and come our with destinctions, so
+            you
+            know that all food prepared and serverd at our resteraunt will look and taste fantastic.
+
+            As we are commited to using fresh ingredients, please be sure to check our menu everyday as there may be
+            tweaks
+            and changes we have had to make due to the ingredients available. We also rotate through our specials, so
+            make
+            sure to keep an eye out when your favourite is on the menu!</p>
+
+        <p>All at WD2 have a zero tolerancy policy againt any wasted food, and at the end of every night, our chefs will
+            make dishes with the ingredients we have to spare and donate these to local food banks.</p>
+
+    </div>
+
+    <div id="hours">
+        <span>Our opening hours are as follows:</span>
+        <ul>
+            <li>Sunday 12pm-9pm</li>
+            <li>Monday 11am-10pm</li>
+            <li>Tuesday 11am-10pm</li>
+            <li>Wednesday 11am-10pm</li>
+            <li>Thursday 11am-10pm</li>
+            <li>Friday 11am-10pm</li>
+            <li>Saturday 11:30am-10pm</li>
+        </ul>
+    </div>
+    <div id="menu-Info">
+        <p>Lunches are served from opening until 4pm everyday, while the dinner menu is available from 4pm onwards. The sides, desserts and drinks are available all day.</p>
+    </div>
+</body>
+
+</html>

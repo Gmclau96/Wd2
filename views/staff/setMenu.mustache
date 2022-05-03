@@ -4,8 +4,12 @@
    </head>
    <body>
       <div class="navBar">
-         <a href="/">Home</a>
-         <a href="./about.html">About Us</a>
+         <a href="/loggedIn">Menu</a>
+         <a href="/about.html">About Us</a>
+         <a href="/addUser">Add User</a>
+         <a href="/newItem">Add dish</a>
+         <a href="/setMenu" class="active">Set Menu</a>
+         <a href="/logout">Logout</a>
       </div>
       <h1>{{title}}</h1>
 
@@ -14,6 +18,7 @@
          <form method="post">
          <input class="dish" value="{{name}}" name="dish" readonly>
          <button type="submit" formaction="/setMenu">Make available</button>
+         <button type="submit" formaction="">Make unavailable</button>
          <button type="submit" formaction="">Edit Dish</button>
          </form>
          {{/menu}}

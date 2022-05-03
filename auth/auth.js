@@ -39,7 +39,6 @@ exports.authenticate = function (req, res, next) {
         payload = jwt.verify(token, process.env.SECRET);
         next();
     } catch (error) {
-
         res.status(401).send();
     }
 };

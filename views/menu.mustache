@@ -4,11 +4,21 @@
    </head>
    <body>
       <div class="navBar">
-         <a href="/" class="active">Home</a>
-         <a href="./about.html">About Us</a>
+         <a href="/" class="active">Menu</a>
+         <a href="/about.html">About Us</a>
+         {{#user}}
+        <a href="/addUser">Add User</a>
+         <a href="/newItem">Add dish</a>
+         <a href="/setMenu" >Set Menu</a>
+         <a href="/logout">Logout</a>
+         {{/user}}
+{{^user}}
+{{/user}}
       </div>
       <h1>{{title}}</h1>
       <h3>Lunch</h3>
+
+
       {{#lunch}}
       <div id="lunch-Item">
          <button class="accordion">

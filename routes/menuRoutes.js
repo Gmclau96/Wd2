@@ -4,6 +4,7 @@ const controller = require('../controllers/menuController.js');
 const { login } = require("../auth/auth");
 const { authenticate } = require("../auth/auth");
 
+
 router.get("/", controller.landing_page);
 router.get("/login", controller.get_login);
 router.post("/login", login, controller.post_login);
@@ -13,6 +14,7 @@ router.get("/setMenu", authenticate, controller.get_setMenu);
 router.post("/setMenu", authenticate, controller.post_setMenu);
 router.get("/addUser", authenticate, controller.get_addUser);
 router.post("/addUser", authenticate, controller.post_addUser);
+router.get("/loggedIn", authenticate, controller.get_loggedInMenu);
 router.get("/logout", controller.logout);
 router.use(function (req, res) {
     res.status(404);

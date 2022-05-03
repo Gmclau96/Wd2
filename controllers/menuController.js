@@ -33,6 +33,36 @@ exports.landing_page = function (req, res) {
         });
 };
 
+exports.get_loggedInMenu = function (req,res){
+    db.getLunch()
+    .then((lunch) => {
+        db.getDinner()
+            .then((dinner) => {
+                db.getSides()
+                    .then((sides) => {
+                        db.getDesserts()
+                            .then((desserts) => {
+                                db.getDrinks()
+                                    .then((drinks) => {
+                                        res.render("menu", {
+                                            title: "Menu",
+                                            lunch: lunch,
+                                            dinner: dinner,
+                                            sides: sides,
+                                            desserts: desserts,
+                                            drinks: drinks,
+                                            user: "loggedIn"
+                                        });
+                                    })
+                                    .catch((err) => {
+                                        console.log("promise rejected", err);
+                                    });
+                            });
+                    });
+            });
+    });  
+}
+
 exports.get_login = function (req, res) {
     res.render('staff/login', {
         title: 'Staff Login'
@@ -114,8 +144,6 @@ exports.get_setMenu = function (req, res) {
 };
 
 exports.post_setMenu = function (req, res) {
-    console.log("req body is", req.body.dish);
-
     db.setAvailable(req.body.dish);
 };
 
