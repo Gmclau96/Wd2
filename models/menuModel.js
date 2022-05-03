@@ -117,6 +117,12 @@ class MenuDAO {
             console.log(dish, " made available");
         });
     };
+
+    setUnavailable(dish) {
+        this.db.update({ name: dish }, { $set: { available: 'false' } }, function (err, num) {
+            console.log(dish, " made unavailable");
+        });
+    };
 };
 
 module.exports = MenuDAO;

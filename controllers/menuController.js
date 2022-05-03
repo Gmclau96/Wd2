@@ -143,9 +143,17 @@ exports.get_setMenu = function (req, res) {
         });
 };
 
-exports.post_setMenu = function (req, res) {
+exports.post_setAvailable = function (req, res) {
     db.setAvailable(req.body.dish);
 };
+
+exports.post_setUnavailable = function (req, res) {
+    db.setUnavailable(req.body.dish);
+};
+
+exports.get_editItem = function (req,res){
+    
+}
 
 exports.get_addUser = function (req, res) {
     res.render('staff/addUser', {
