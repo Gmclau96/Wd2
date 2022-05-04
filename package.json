@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed": "node seed.js",
-    "index": "node index.js",
-    "start": "node seed && node index"
+    "start": "node seed"
   },
   "engines":{
     "node": "16.14.0"
