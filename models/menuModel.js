@@ -8,7 +8,7 @@ class MenuDAO {
     }
     //removes items that are not chef specials and turns all dish availabillity off
     init() {
-        this.db.update({ available: 'true' }, { $set: { available: 'false' } }, { multi: true }, function (err, num) {
+        this.db.update({ available: 'True' }, { $set: { available: 'False' } }, { multi: true }, function (err, num) {
             console.log(num, " dishes set to unavailable");
         });
         this.db.remove({ special: 'False' }, { multi: true }, function (err, num) {
@@ -23,7 +23,7 @@ class MenuDAO {
                     reject(err);
                 } else {
                     resolve(menu);
-                    console.log('returning all menu items: ', menu);
+                    // console.log('returning all menu items: ', menu);
                 }
             });
         });
@@ -31,7 +31,7 @@ class MenuDAO {
     };
     getLunch() {
         return new Promise((resolve, reject) => {
-            this.db.find({ $and: [{ "dish.itemType": "Lunch" }, { available: 'true' }] }, function (err, lunch) {
+            this.db.find({ $and: [{ "dish.itemType": "Lunch" }, { available: 'True' }] }, function (err, lunch) {
                 if (err) {
                     reject(err);
                 } else {
@@ -43,7 +43,7 @@ class MenuDAO {
     }
     getDinner() {
         return new Promise((resolve, reject) => {
-            this.db.find({ $and: [{ "dish.itemType": "Dinner" }, { available: 'true' }] }, function (err, dinner) {
+            this.db.find({ $and: [{ "dish.itemType": "Dinner" }, { available: 'True' }] }, function (err, dinner) {
                 if (err) {
                     reject(err);
                 } else {
@@ -54,7 +54,7 @@ class MenuDAO {
     };
     getSides() {
         return new Promise((resolve, reject) => {
-            this.db.find({ $and: [{ "dish.itemType": "Side" }, { available: 'true' }] }, function (err, sides) {
+            this.db.find({ $and: [{ "dish.itemType": "Side" }, { available: 'True' }] }, function (err, sides) {
                 if (err) {
                     reject(err);
                 } else {
@@ -65,7 +65,7 @@ class MenuDAO {
     };
     getDesserts() {
         return new Promise((resolve, reject) => {
-            this.db.find({ $and: [{ "dish.itemType": "Dessert" }, { available: 'true' }] }, function (err, Dessert) {
+            this.db.find({ $and: [{ "dish.itemType": "Dessert" }, { available: 'True' }] }, function (err, Dessert) {
                 if (err) {
                     reject(err);
                 } else {
@@ -76,7 +76,7 @@ class MenuDAO {
     };
     getDrinks() {
         return new Promise((resolve, reject) => {
-            this.db.find({ $and: [{ "dish.itemType": "Drink" }, { available: 'true' }] }, function (err, Drink) {
+            this.db.find({ $and: [{ "dish.itemType": "Drink" }, { available: 'True' }] }, function (err, Drink) {
                 if (err) {
                     reject(err);
                 } else {
@@ -112,14 +112,57 @@ class MenuDAO {
             }
         });
     };
+
+    updateItem(name, description, ingredients, allergies, vegetarian, vegan, price, itemType, itemId, special, available, _id) {
+        this.db.update({ _id: _id }, {
+            $set: {
+                name: name,
+                description: description,
+                ingredients: [ingredients],
+                allergyInfo: [{
+                    allergies: [allergies],
+                    vegetarian: vegetarian,
+                    vegan: vegan
+                }],
+                price: price,
+                dish: [{
+                    itemType: itemType,
+                    itemId: itemId
+                }],
+                special: special,
+                available: available,
+                _id: _id
+            }
+        }, { upsert: true }, function (err, doc) {
+            if (err) {
+                console.log("Could not add ", name);
+            } else {
+                console.log(name, " Edited!")
+            }
+        });
+    }
+
+    getItembyId(id) {
+        return new Promise((resolve, reject) => {
+            this.db.find({ _id: id }).exec(function (err, item) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(item);
+                    console.log('Editing: ', item);
+                }
+            });
+        });
+    };
+
     setAvailable(dish) {
-        this.db.update({ name: dish }, { $set: { available: 'true' } }, function (err, num) {
+        this.db.update({ name: dish }, { $set: { available: 'True' } }, function (err, num) {
             console.log(dish, " made available");
         });
     };
 
     setUnavailable(dish) {
-        this.db.update({ name: dish }, { $set: { available: 'false' } }, function (err, num) {
+        this.db.update({ name: dish }, { $set: { available: 'False' } }, function (err, num) {
             console.log(dish, " made unavailable");
         });
     };

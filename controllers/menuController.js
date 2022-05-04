@@ -33,34 +33,34 @@ exports.landing_page = function (req, res) {
         });
 };
 
-exports.get_loggedInMenu = function (req,res){
+exports.get_loggedInMenu = function (req, res) {
     db.getLunch()
-    .then((lunch) => {
-        db.getDinner()
-            .then((dinner) => {
-                db.getSides()
-                    .then((sides) => {
-                        db.getDesserts()
-                            .then((desserts) => {
-                                db.getDrinks()
-                                    .then((drinks) => {
-                                        res.render("menu", {
-                                            title: "Menu",
-                                            lunch: lunch,
-                                            dinner: dinner,
-                                            sides: sides,
-                                            desserts: desserts,
-                                            drinks: drinks,
-                                            user: "loggedIn"
+        .then((lunch) => {
+            db.getDinner()
+                .then((dinner) => {
+                    db.getSides()
+                        .then((sides) => {
+                            db.getDesserts()
+                                .then((desserts) => {
+                                    db.getDrinks()
+                                        .then((drinks) => {
+                                            res.render("menu", {
+                                                title: "Menu",
+                                                lunch: lunch,
+                                                dinner: dinner,
+                                                sides: sides,
+                                                desserts: desserts,
+                                                drinks: drinks,
+                                                user: "loggedIn"
+                                            });
+                                        })
+                                        .catch((err) => {
+                                            console.log("promise rejected", err);
                                         });
-                                    })
-                                    .catch((err) => {
-                                        console.log("promise rejected", err);
-                                    });
-                            });
-                    });
-            });
-    });  
+                                });
+                        });
+                });
+        });
 }
 
 exports.get_login = function (req, res) {
@@ -86,18 +86,6 @@ exports.post_newItem = function (req, res) {
     if (allergies == "") {
         allergies = null
     }
-    let vegetarian = req.body.vegetarian;
-    if (vegetarian == "True") {
-        vegetarian = "Vegetarian friendly"
-    } else {
-        vegetarian = null
-    }
-    let vegan = req.body.vegan;
-    if (vegan == "True") {
-        vegan = "Vegan friendly"
-    } else {
-        vegan = null
-    }
 
     if (req.body.itemType == "Lunch") {
         itemId = 1
@@ -114,13 +102,13 @@ exports.post_newItem = function (req, res) {
     if (req.body.itemType == "Drink") {
         itemId = 5
     }
-    db.addMenuItem(
+    db.updateItem(
         req.body.name,
         req.body.description,
         req.body.ingredients,
         allergies,
-        vegetarian,
-        vegan,
+        req.body.vegetarian,
+        req.body.vegan,
         req.body.price,
         req.body.itemType,
         itemId,
@@ -151,8 +139,53 @@ exports.post_setUnavailable = function (req, res) {
     db.setUnavailable(req.body.dish);
 };
 
-exports.get_editItem = function (req,res){
-    
+exports.get_editItem = function (req, res) {
+    const id = req.params._id;
+    db.getItembyId(id)
+        .then((item) => {
+            res.render('staff/editItem', {
+                title: "Edit Item",
+                item: item
+            });
+        });
+}
+
+exports.post_editItem = function (req, res) {
+    let allergies = req.body.allergies;
+    if (allergies == "") {
+        allergies = null
+    }
+
+    if (req.body.itemType == "Lunch") {
+        itemId = 1
+    }
+    if (req.body.itemType == "Dinner") {
+        itemId = 2
+    }
+    if (req.body.itemType == "Side") {
+        itemId = 3
+    }
+    if (req.body.itemType == "Dessert") {
+        itemId = 4
+    }
+    if (req.body.itemType == "Drink") {
+        itemId = 5
+    }
+    db.updateItem(
+        req.body.name,
+        req.body.description,
+        req.body.ingredients,
+        allergies,
+        req.body.vegetarian,
+        req.body.vegan,
+        req.body.price,
+        req.body.itemType,
+        itemId,
+        req.body.special,
+        req.body.available,
+        req.body._id
+    );
+    res.redirect('/setMenu');
 }
 
 exports.get_addUser = function (req, res) {

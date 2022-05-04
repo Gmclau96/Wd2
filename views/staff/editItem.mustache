@@ -7,56 +7,67 @@
     <a href="/loggedIn">Menu</a>
          <a href="/about.html">About Us</a>
          <a href="/addUser">Add User</a>
-         <a href="/newItem" class="active">Add dish</a>
+         <a href="/newItem">Add dish</a>
          <a href="/setMenu">Set Menu</a>
          <a href="/logout">Logout</a>
       </div>
       <h1>{{title}}</h1>
       <section>
+      {{#item}}
          <fieldset>
-            <legend>Add dish:</legend>
-            <form method="post" action="newItem">
+            <legend>Edit dish:</legend>
+            <form method="post" action="/updateItem">
+            <label for="_id">ID:</label><br>
+            <input id="_id" name="_id" value="{{_id}}" readonly><br><br>
                <label for="name">Name:</label><br>
-               <input type="text" id="name" name="name" required><br><br>
+               <input type="text" id="name" name="name" value="{{name}}"required><br><br>
                <label for="description">Description:</label><br>
-               <input type="text" id="description" name="description" required><br><br>               
+               <input type="text" id="description" name="description" value="{{description}}" required><br><br>               
                <label for="ingredients">Ingredients:</label><br>
-               <input type="text" id="ingredients" name="ingredients" required><br><br>
+               <input type="text" id="ingredients" name="ingredients" value="{{ingredients}}" required><br><br>
                <label for="allergies">Allergies:</label><br>
-               <input type="text" id="allergies" name="allergies"><br><br>
+               <input type="text" id="allergies" name="allergies" value="{{#allergyInfo}}{{allergies}}{{/allergyInfo}}"><br><br>
                <label for="vegetarian">Vegetarian friendly:</label><br>
+               <label id="vegeLabel">{{#allergyInfo}}{{vegetarian}}{{/allergyInfo}}</label>
                <select id="vegetarian" name="vegetarian">
-               <option value="True" select="selected">True</option>
+               <option value="True">True</option>
                <option value="False">False</option>
                </select><br><br>
               <label for="vegan">Vegan friendly:</label><br>
+              <label id="veganLabel">{{#allergyInfo}}{{vegan}}{{/allergyInfo}}</label>
                <select id="vegan" name="vegan">
-               <option value="True" select="selected">True</option>
+               <option value="True">True</option>
                <option value="False">False</option>
                </select><br><br>
                <label for="price">Price:</label><br>
-               <input type="text" id="price" name="price" required><br><br>
+               <input type="text" id="price" name="price" value="{{price}}" required><br><br>
                <label for="itemType">Item Type:</label><br>
+               <label id="itemTypeLabel">{{#dish}}{{itemType}}{{/dish}}</label>
                <select id="itemType" name="itemType">
-               <option value="Lunch" select="selected">Lunch</option>
+               <option value="Lunch">Lunch</option>
                <option value="Dinner">Dinner</option>
                <option value="Side">Side</option>
                <option value="Dessert">Dessert</option>
                <option value="Drink">Drink</option>
                </select><br><br>
                <label for="special">Chef Special:</label><br>
+               <label id="specialLabel">{{special}}</label>
                <select id="special" name="special">
-               <option value="True" select="selected">True</option>
+               <option value="True">True</option>
                <option value="False">False</option>
                </select><br><br>
                <label for="available">Available:</label><br>
+               <label id="availableLabel">{{available}}</label>
                <select id="available" name="available">
-               <option value="true" select="selected">True</option>
-               <option value="false">False</option>
+               <option value="True">True</option>
+               <option value="False">False</option>
                </select><br><br>
-               <button id="addDish" >Add Dish</button>
+               <button id="updateDish">Update Dish</button>
             </form>
          </fieldset>
+         
+         {{/item}}
       </section>
+      <script src="/javaScript/editItem.js"></script>
    </body>
 </html>

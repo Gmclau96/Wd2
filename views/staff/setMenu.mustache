@@ -19,7 +19,7 @@
          <input class="dish" value="{{name}}" name="dish" readonly>
          <button class="available" type="submit" formaction="/available" value="{{name}}">Make available</button>
          <button class="unavailable" type="submit" formaction="/unavailable" value="{{name}}">Make unavailable</button>
-         <button type="submit" formaction="/{{_id}}">Edit Dish</button>
+         <button type="submit" formmethod="get" formaction="edit/{{_id}}">Edit Dish</button>
          </form>
          {{/menu}}
 <script src="javaScript/availabillity.js"></script>
