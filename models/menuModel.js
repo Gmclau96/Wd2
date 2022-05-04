@@ -6,7 +6,7 @@ class MenuDAO {
         console.log('Connected to Menu database ');
 
     }
-    //removes items that are not chef specials and turns all dish availabillity off
+    //removes items that are not chef specials and turns all dish availabillity off on server
     init() {
         this.db.update({ available: 'True' }, { $set: { available: 'False' } }, { multi: true }, function (err, num) {
             console.log(num, " dishes set to unavailable");
@@ -145,7 +145,7 @@ class MenuDAO {
 
     deleteItem(_id, name) {
         this.db.remove({ _id: _id }, {}, function (err, numRemoved) {
-            console.log(name, " removed")
+            console.log(name, "removed from menu database")
           });
     }
 
