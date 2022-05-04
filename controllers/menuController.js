@@ -195,7 +195,7 @@ exports.post_deleteItem = function (req, res) {
 
 exports.get_addUser = function (req, res) {
     res.render('staff/addUser', {
-        title: 'Add User'
+        title: 'Add Staff member'
     });
 };
 

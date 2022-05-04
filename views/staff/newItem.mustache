@@ -11,31 +11,30 @@
          <a href="/setMenu">Set Menu</a>
          <a href="/logout">Logout</a>
       </div>
-      <h1>{{title}}</h1>
-      <section>
-         <fieldset>
-            <legend>Add dish:</legend>
-            <form method="post" action="newItem">
+      <h1 id="header">{{title}}</h1>
+      <main>
+         <div id="item">
+            <form id="input" method="post" action="newItem">
                <label for="name">Name:</label><br>
-               <input type="text" id="name" name="name" required><br><br>
+               <input type="text" id="name" name="name" required><br>
                <label for="description">Description:</label><br>
-               <input type="text" id="description" name="description" required><br><br>               
+               <input type="text" id="description" name="description" required><br>        
                <label for="ingredients">Ingredients:</label><br>
-               <input type="text" id="ingredients" name="ingredients" required><br><br>
+               <input type="text" id="ingredients" name="ingredients" required><br>
                <label for="allergies">Allergies:</label><br>
-               <input type="text" id="allergies" name="allergies"><br><br>
+               <input type="text" id="allergies" name="allergies"><br>
                <label for="vegetarian">Vegetarian friendly:</label><br>
                <select id="vegetarian" name="vegetarian">
                <option value="True" select="selected">True</option>
                <option value="False">False</option>
-               </select><br><br>
+               </select><br>
               <label for="vegan">Vegan friendly:</label><br>
                <select id="vegan" name="vegan">
                <option value="True" select="selected">True</option>
                <option value="False">False</option>
-               </select><br><br>
+               </select><br>
                <label for="price">Price:</label><br>
-               <input type="text" id="price" name="price" required><br><br>
+               <input type="text" id="price" name="price" required><br>
                <label for="itemType">Item Type:</label><br>
                <select id="itemType" name="itemType">
                <option value="Lunch" select="selected">Lunch</option>
@@ -43,20 +42,20 @@
                <option value="Side">Side</option>
                <option value="Dessert">Dessert</option>
                <option value="Drink">Drink</option>
-               </select><br><br>
+               </select><br>
                <label for="special">Chef Special:</label><br>
                <select id="special" name="special">
                <option value="True" select="selected">True</option>
                <option value="False">False</option>
-               </select><br><br>
+               </select><br>
                <label for="available">Available:</label><br>
                <select id="available" name="available">
                <option value="True" select="selected">True</option>
                <option value="False">False</option>
                </select><br><br>
-               <button id="addDish" >Add Dish</button>
+               <button id="itemButton" >Add Dish</button>
             </form>
-         </fieldset>
-      </section>
+         </div>
+      </main>
    </body>
 </html>

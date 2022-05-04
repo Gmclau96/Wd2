@@ -11,17 +11,25 @@
          <a href="/setMenu" class="active">Set Menu</a>
          <a href="/logout">Logout</a>
       </div>
-      <h1>{{title}}</h1>
-
-
+      <h1 id="header">{{title}}</h1>
+<main>
+<div id="search">
+<label>Find a dish</label><br>
+<input id="find" placeholder="Enter dish name" onkeyup=myFunction()><br>
+</div>
+<div id="inputText">
          {{#menu}}
-         <form method="post">
-         <input class="dish" value="{{name}}" name="dish" readonly>
+         <form id="menuForm" class="items" method="post">
+         <ul id="items">
+         <li id="item"><input class="dish" value="{{name}}" name="dish" readonly>
          <button class="available" type="submit" formaction="/available" value="{{name}}">Make available</button>
          <button class="unavailable" type="submit" formaction="/unavailable" value="{{name}}">Make unavailable</button>
-         <button type="submit" formmethod="get" formaction="edit/{{_id}}">Edit Dish</button>
+         <button type="submit" formmethod="get" formaction="edit/{{_id}}">Edit Dish</button></li>
+         </ul>
          </form>
          {{/menu}}
+         </div>
+         </main>
 <script src="javaScript/availabillity.js"></script>
    </body>
 </html>

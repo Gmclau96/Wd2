@@ -11,36 +11,35 @@
          <a href="/setMenu">Set Menu</a>
          <a href="/logout">Logout</a>
       </div>
-      <h1>{{title}}</h1>
-      <section>
+      <h1 id="header">{{title}}</h1>
+      <main>
       {{#item}}
-         <fieldset>
-            <legend>Edit dish:</legend>
-            <form method="post" action="/updateItem">
-            <label for="_id">ID:</label><br>
-            <input id="_id" name="_id" value="{{_id}}" readonly><br><br>
+         <div id="item">
+            <form id="input" method="post" action="/updateItem">
+            <label for="_id">ID (read only):</label><br>
+            <input id="_id" name="_id" value="{{_id}}" readonly><br>
                <label for="name">Name:</label><br>
-               <input type="text" id="name" name="name" value="{{name}}"required><br><br>
+               <input type="text" id="name" name="name" value="{{name}}"required><br>
                <label for="description">Description:</label><br>
-               <input type="text" id="description" name="description" value="{{description}}" required><br><br>               
+               <input type="text" id="description" name="description" value="{{description}}" required><br>             
                <label for="ingredients">Ingredients:</label><br>
-               <input type="text" id="ingredients" name="ingredients" value="{{ingredients}}" required><br><br>
+               <input type="text" id="ingredients" name="ingredients" value="{{ingredients}}" required><br>
                <label for="allergies">Allergies:</label><br>
-               <input type="text" id="allergies" name="allergies" value="{{#allergyInfo}}{{allergies}}{{/allergyInfo}}"><br><br>
+               <input type="text" id="allergies" name="allergies" value="{{#allergyInfo}}{{allergies}}{{/allergyInfo}}"><br>
                <label for="vegetarian">Vegetarian friendly:</label><br>
                <label id="vegeLabel">{{#allergyInfo}}{{vegetarian}}{{/allergyInfo}}</label>
                <select id="vegetarian" name="vegetarian">
                <option value="True">True</option>
                <option value="False">False</option>
-               </select><br><br>
+               </select><br>
               <label for="vegan">Vegan friendly:</label><br>
               <label id="veganLabel">{{#allergyInfo}}{{vegan}}{{/allergyInfo}}</label>
                <select id="vegan" name="vegan">
                <option value="True">True</option>
                <option value="False">False</option>
-               </select><br><br>
+               </select><br>
                <label for="price">Price:</label><br>
-               <input type="text" id="price" name="price" value="{{price}}" required><br><br>
+               <input type="text" id="price" name="price" value="{{price}}" required><br>
                <label for="itemType">Item Type:</label><br>
                <label id="itemTypeLabel">{{#dish}}{{itemType}}{{/dish}}</label>
                <select id="itemType" name="itemType">
@@ -49,25 +48,25 @@
                <option value="Side">Side</option>
                <option value="Dessert">Dessert</option>
                <option value="Drink">Drink</option>
-               </select><br><br>
+               </select><br>
                <label for="special">Chef Special:</label><br>
                <label id="specialLabel">{{special}}</label>
                <select id="special" name="special">
                <option value="True">True</option>
                <option value="False">False</option>
-               </select><br><br>
+               </select><br>
                <label for="available">Available:</label><br>
                <label id="availableLabel">{{available}}</label>
                <select id="available" name="available">
                <option value="True">True</option>
                <option value="False">False</option>
                </select><br><br>
-               <button id="updateDish">Update Dish</button>
-               <button id="deleteDish" type="submit" formmethod="post" formaction="/deleteItem">Delete Dish</button>
+               <button id="itemButton">Update Dish</button><br><br>
+               <button id="itemButton" type="submit" formmethod="post" formaction="/deleteItem">Delete Dish</button>
             </form>
-         </fieldset>
+         </div>
          {{/item}}
-      </section>
+      </main>
       <script src="/javaScript/editItem.js"></script>
    </body>
 </html>

@@ -7,18 +7,29 @@
          <a href="/">Menu</a>
          <a href="/about.html">About Us</a>
       </div>
-      <h1>{{title}}</h1>
-      <section>
-         <fieldset>
-            <legend>Login:</legend>
-            <form method="post" action="/login">
-               <label for="username">Username:</label>
-               <input type="text" id="username" name="username"><br><br>
-               <label for="password">Password:</label>
+      <h1 id="header">{{title}}</h1>
+      <main>
+      <div id="login-flexbox">
+         <div id="login-div">
+            <form id="input" method="post" action="/login">
+               <label for="username">Username:</label><br>
+               <input type="text" id="username" name="username"><br>
+               <label for="password">Password:</label><br>
                <input type="password" id="password" name="password"><br><br>
-               <button id="login">Login</button> <a href="/addUser">Add user</a>
+               <button id="button">Login</button>
             </form>
-         </fieldset>
-      </section>
+         </div>
+          <div id="benifits">
+         <p>Login to gain access to the following:</p>
+         <ul>
+         <li>Add New Dish</li>
+         <li>Edit Dish Details</li>
+         <li>Delete A Dish</li>
+         <li>Set Menu Availabillity</li>
+         <li>Add New Staff Members</li>
+         </ul>
+         </div>
+         </div>
+         </main>
    </body>
 </html>

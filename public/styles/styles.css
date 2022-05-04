@@ -1,4 +1,5 @@
-*::after,
+/* General elements* */
+::after,
 *::before {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -8,19 +9,21 @@
 
 body {
     margin: 0;
-    background-color: #978897;
+    background-color: #CAD2C5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
 }
 
 .navBar {
     overflow: hidden;
-    background-color: #494850;
+    background-color: #52796F;
+    max-width: 100%
 }
 
 .navBar a {
     float: left;
+    color: #CAD2C5;
     display: block;
-    color: #D8D8F6;
     padding: 1em;
     text-align: center;
     text-decoration: none;
@@ -28,18 +31,34 @@ body {
 }
 
 .navBar a:hover {
-    background-color: #D8D8F6;
-    color: #494850;
+    background-color: #84A98C;
 }
 
 .navBar a.active {
-    background-color: #B18FCF;
-    color: #D8D8F6;
+    background-color: #84A98C;
+    color: #CAD2C5;
 }
 
+
+#input>input {
+    width:100%;
+    font-size: 20px;
+}
+
+#input>select {
+    width: 100%;
+    line-height: 200%;
+    font-size: 20px;
+}
+
+#header {
+    padding: 0.5%;
+}
+
+/* Menu elements */
 .accordion {
-    background-color: #eee;
-    color: #444;
+    background-color: #52796F;
+    color: #CAD2C5;
     cursor: pointer;
     padding: 18px;
     width: 100%;
@@ -51,15 +70,136 @@ body {
 
 .panel {
     padding: 0 18px;
-    background-color: white;
+    background-color: #84A98C;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
 
-.dish, .dish:focus {
+/* About us elements */
+#about-flexbox {
+    display: flex;
+    flex-direction: row;
+}
+
+#about-flexbox>div {
+    background-color: #84A98C;
+    width: auto;
+    min-height: fit-content;
+    margin: 0.5%;
+    padding: 0.5%;
+    text-align: justify;
+    line-height: 200%;
+    font-size: 20px;
+    border: solid #52796F;
+    border-width: 5 5%;
+    border-radius: 15px;
+}
+
+
+
+/* Add User & Login elements */
+#addUser-flexbox,
+#login-flexbox {
+    display: flex;
+    flex-direction: row;
+}
+
+#addUser-flexbox>div,
+#login-flexbox>div {
+    background-color: #84A98C;
+    width: auto;
+    margin: 0.5%;
+    padding: 0.5%;
+    text-align: justify;
+    line-height: 200%;
+    font-size: 20px;
+    border: solid #52796F;
+    border-width: 5 5%;
+    border-radius: 15px;
+}
+
+#button {
+    background-color: #52796F;
+    color: #CAD2C5;
+    width: 100%;
+    height: 30%;
+    border-radius: 15px;
+}
+
+/* New Item & edit Item elements */
+#item {
+    background-color: #84A98C;
+    max-width: 100%;
+    margin: 0.5%;
+    padding: 0.5%;
+    line-height: 200%;
+    font-size: 20px;
+    border: solid #52796F;
+    border-width: 5 5%;
+    border-radius: 15px;
+}
+
+#itemButton {
+    background-color: #52796F;
+    color: #CAD2C5;
+    width: 100%;
+    height: 5%;
+    border-radius: 15px;
+}
+
+/* Set menu elements*/
+.dish,
+.dish:focus {
     background-color: transparent;
     border: none;
     outline: none;
-    min-width: auto;
+    width: 100%;
+    line-height: 200%;
+    font-size: 20px;
+}
+
+#menuForm{
+    background-color: #84A98C;
+    width: fit-content;
+    margin: 0.5%;
+    line-height: 200%;
+    font-size: 20px;
+    border: solid #52796F;
+    border-width: 5 5%;
+    border-radius: 15px;
+}
+
+#item>button{
+    background-color: #52796F;
+    color: #CAD2C5;
+    width: fit-content;
+    margin: 1%;
+    padding: 2%;
+    height: 5%;
+    border-radius: 15px;
+}
+#items{
+    list-style-type: none;
+}
+#item {
+    border:none;
+    outline: none
+}
+
+#search{
+    background-color: #84A98C;
+    width: fit-content;
+    margin: 0.5%;
+    padding: 0.5%;
+    line-height: 200%;
+    font-size: 20px;
+    border: solid #52796F;
+    border-width: 5 5%;
+    border-radius: 15px;
+}
+
+#search>input{
+    width:auto;
+    font-size: 20px;  
 }
