@@ -20,6 +20,9 @@ app.set('view engine', 'mustache');
 const router = require('./routes/menuRoutes');
 app.use('/', router);
 
-app.listen(3000, () => {
-    console.log('Server running on port 3000, CTRL+C to close')
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log('Server running on ${PORT}, CTRL+C to close')
 })
