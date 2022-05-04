@@ -1,2 +1,1 @@
-web: node seed.js
-web: node index.js
+web:node seed.js && node index.js
