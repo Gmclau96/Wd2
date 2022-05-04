@@ -17,7 +17,7 @@ body {
 .navBar {
     overflow: hidden;
     background-color: #52796F;
-    max-width: 100%
+    max-width: 100%;
 }
 
 .navBar a {
@@ -41,7 +41,7 @@ body {
 
 
 #input>input {
-    width:100%;
+    width: 100%;
     font-size: 20px;
 }
 
@@ -88,7 +88,6 @@ body {
     min-height: fit-content;
     margin: 0.5%;
     padding: 0.5%;
-    text-align: justify;
     line-height: 200%;
     font-size: 20px;
     border: solid #52796F;
@@ -159,7 +158,17 @@ body {
     font-size: 20px;
 }
 
-#menuForm{
+.itemType,
+.itemType:focus {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    line-height: 200%;
+    font-size: 20px;
+}
+
+#menuForm {
     background-color: #84A98C;
     width: fit-content;
     margin: 0.5%;
@@ -170,7 +179,7 @@ body {
     border-radius: 15px;
 }
 
-#item>button{
+#item>button {
     background-color: #52796F;
     color: #CAD2C5;
     width: fit-content;
@@ -179,16 +188,19 @@ body {
     height: 5%;
     border-radius: 15px;
 }
-#items{
+
+#items {
     list-style-type: none;
 }
+
 #item {
-    border:none;
+    border: none;
     outline: none
 }
 
-#search{
+#search {
     background-color: #84A98C;
+    height: fit-content;
     width: fit-content;
     margin: 0.5%;
     padding: 0.5%;
@@ -199,7 +211,57 @@ body {
     border-radius: 15px;
 }
 
-#search>input{
-    width:auto;
-    font-size: 20px;  
+#search>input {
+    width: auto;
+    font-size: 20px;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 425px) {
+
+    /* about us page */
+    #about-flexbox {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #about-flexbox>div {
+        background-color: #84A98C;
+        width: auto;
+        min-height: fit-content;
+        margin: 0.5%;
+        padding: auto;
+        font-size: 18px;
+        border: solid #52796F;
+        border-width: 5 5%;
+        border-radius: 15px;
+    }
+
+    /* Add user and login page */
+    #addUser-flexbox,
+    #login-flexbox {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #addUser-flexbox>div,
+    #login-flexbox>div {
+        width: 100%;
+    }
+
+    #button {
+        height: 15%;
+    }
+
+    /* Set Menu page */
+    #search {
+        padding: 2%;
+        width: auto;
+    }
+
+    #search>input {
+        width: auto;
+        font-size: 20px;
+    }
 }

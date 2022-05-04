@@ -20,17 +20,20 @@ function myFunction() {
     input = input.toLowerCase();
     let x = document.getElementsByClassName('dish');
     let y = document.getElementsByClassName('items');
-
-    for (i = 0; i < y.length; i++) {
-        for (i = 0; i < x.length; i++) {
-
-            if (!x[i].value.toLowerCase().includes(input)) {
-                x[i].hidden = true;
-                y[i].hidden = true;
-            }
-            else {
-                x[i].hidden = false;
-                y[i].hidden = false;
+    let z = document.getElementsByClassName('itemType');
+    for (i = 0; i < x.length; i++) {
+        for (i = 0; i < y.length; i++) {
+            for (i = 0; i < z.length; i++) {
+                if (!x[i].value.toLowerCase().includes(input)) {
+                    x[i].hidden = true;
+                    y[i].hidden = true;
+                    z[i].hidden = true;
+                }
+                else {
+                    x[i].hidden = false;
+                    y[i].hidden = false;
+                    z[i].hidden = false;
+                }
             }
         }
     }
