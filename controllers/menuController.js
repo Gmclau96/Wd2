@@ -188,6 +188,11 @@ exports.post_editItem = function (req, res) {
     res.redirect('/setMenu');
 }
 
+exports.post_deleteItem = function (req, res) {
+    db.deleteItem(req.body._id, req.body.name);
+    res.redirect("/setMenu")
+}
+
 exports.get_addUser = function (req, res) {
     res.render('staff/addUser', {
         title: 'Add User'

@@ -142,6 +142,13 @@ class MenuDAO {
         });
     }
 
+
+    deleteItem(_id, name) {
+        this.db.remove({ _id: _id }, {}, function (err, numRemoved) {
+            console.log(name, " removed")
+          });
+    }
+
     getItembyId(id) {
         return new Promise((resolve, reject) => {
             this.db.find({ _id: id }).exec(function (err, item) {
