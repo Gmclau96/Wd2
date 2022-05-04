@@ -1,1 +1,1 @@
-web:node seed.js
+web: node index & node seed wait -n;
